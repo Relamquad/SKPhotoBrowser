@@ -104,19 +104,19 @@ open class SKPhoto: NSObject, SKPhotoProtocol {
                     return
                 }
 
-                if let data = data, let response = response, let image = UIImage.animatedImage(withAnimatedGIFData: data) {
-                    if self.shouldCachePhotoURLImage {
-                        if SKCache.sharedCache.imageCache is SKRequestResponseCacheable {
-                            SKCache.sharedCache.setImageData(data, response: response, request: task?.originalRequest)
-                        } else {
-                            SKCache.sharedCache.setImage(image, forKey: self.photoURL)
-                        }
-                    }
-                    DispatchQueue.main.async {
-                        self.underlyingImage = image
-                        self.loadUnderlyingImageComplete()
-                    }
-                }
+//                if let data = data, let response = response, let image = UIImage.animatedImage(withAnimatedGIFData: data) {
+//                    if self.shouldCachePhotoURLImage {
+//                        if SKCache.sharedCache.imageCache is SKRequestResponseCacheable {
+//                            SKCache.sharedCache.setImageData(data, response: response, request: task?.originalRequest)
+//                        } else {
+//                            SKCache.sharedCache.setImage(image, forKey: self.photoURL)
+//                        }
+//                    }
+//                    DispatchQueue.main.async {
+//                        self.underlyingImage = image
+//                        self.loadUnderlyingImageComplete()
+//                    }
+//                }
                 
             })
             task?.resume()
